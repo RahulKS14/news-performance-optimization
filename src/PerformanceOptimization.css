@@ -1,0 +1,386 @@
+:root {
+  /* Monochromatic Corporate Palette (Grays + Black/White) */
+  --color-white: #ffffff;
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f4f4f5;
+  --color-gray-200: #e4e4e7;
+  --color-gray-300: #d4d4d8;
+  --color-gray-400: #a1a1aa;
+  --color-gray-500: #71717a;
+  --color-gray-700: #3f3f46;
+  --color-gray-800: #27272a;
+  --color-gray-900: #18181b;
+  --color-black: #09090b;
+
+  /* The ONLY non-gray color: Red for error states (Contrast ratio 5.4:1 on white) */
+  --color-error-red: #c5221f;
+
+  /* Spacing: STRICTLY in 16px and 32px steps */
+  --space-16: 16px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+
+  /* Typography and Layout Variables */
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --line-height-base: 1.5;
+  --border-width-thin: 1px;
+  --border-width-focus: 2px;
+}
+
+/* Global resets for the component */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-gray-50);
+  color: var(--color-gray-900);
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-base);
+}
+
+/* Focus styles for keyboard accessibility */
+:focus-visible {
+  outline: var(--border-width-focus) solid var(--color-black);
+  outline-offset: 2px;
+}
+
+/* Visually hidden utility for screen readers */
+.perf-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Main Container */
+.perf-container {
+  max-width: 1040px;
+  margin-inline: auto;
+  padding-block: var(--space-32);
+  padding-inline: var(--space-32);
+}
+
+/* Header */
+.perf-header {
+  margin-block-end: var(--space-32);
+  border-block-end: var(--border-width-thin) solid var(--color-gray-200);
+  padding-block-end: var(--space-16);
+}
+
+.perf-title {
+  margin: 0;
+  margin-block-end: var(--space-16);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-black);
+}
+
+.perf-subtitle {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--color-gray-700);
+}
+
+/* Status Bar for Async Loading */
+.perf-status-bar {
+  background-color: var(--color-gray-800);
+  color: var(--color-white);
+  padding-block: var(--space-16);
+  padding-inline: var(--space-16);
+  margin-block-end: var(--space-32);
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+/* Error Alert Box */
+.perf-alert {
+  background-color: var(--color-white);
+  border: var(--border-width-focus) solid var(--color-error-red);
+  color: var(--color-black);
+  padding-block: var(--space-16);
+  padding-inline: var(--space-16);
+  margin-block-end: var(--space-32);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+}
+
+.perf-alert-text {
+  margin: 0;
+  font-weight: 600;
+  color: var(--color-error-red);
+}
+
+/* Content Sections */
+.perf-section {
+  background-color: var(--color-white);
+  border: var(--border-width-thin) solid var(--color-gray-200);
+  padding-block: var(--space-32);
+  padding-inline: var(--space-32);
+  margin-block-end: var(--space-32);
+}
+
+.perf-section-title {
+  margin: 0;
+  margin-block-end: var(--space-16);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-black);
+}
+
+/* Form Styles */
+.perf-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+}
+
+.perf-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-32);
+}
+
+.perf-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.perf-form-group-full {
+  grid-column: 1 / -1;
+}
+
+.perf-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-gray-900);
+  cursor: pointer;
+}
+
+.perf-input {
+  font-family: inherit;
+  font-size: 1rem;
+  min-height: 48px;
+  padding-block: var(--space-16);
+  padding-inline: var(--space-16);
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border: var(--border-width-thin) solid var(--color-gray-400);
+  border-radius: 0;
+  width: 100%;
+}
+
+.perf-input:focus {
+  border-color: var(--color-black);
+  outline: var(--border-width-focus) solid var(--color-black);
+  outline-offset: 1px;
+}
+
+.perf-input-error {
+  border-color: var(--color-error-red);
+  border-width: var(--border-width-focus);
+}
+
+.perf-textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.perf-field-error {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-error-red);
+}
+
+.perf-form-actions {
+  display: flex;
+  gap: var(--space-16);
+}
+
+/* Buttons */
+.perf-btn {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  min-height: 48px;
+  padding-block: var(--space-16);
+  padding-inline: var(--space-32);
+  border: var(--border-width-thin) solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.perf-btn-primary {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+}
+
+.perf-btn-primary:hover:not(:disabled) {
+  background-color: var(--color-gray-800);
+}
+
+.perf-btn-primary:disabled {
+  background-color: var(--color-gray-400);
+  border-color: var(--color-gray-400);
+  cursor: not-allowed;
+}
+
+.perf-btn-secondary {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border-color: var(--color-black);
+}
+
+.perf-btn-secondary:hover:not(:disabled) {
+  background-color: var(--color-gray-100);
+}
+
+/* Records Header & Score Card */
+.perf-records-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-32);
+  margin-block-end: var(--space-32);
+}
+
+.perf-meta-text {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-gray-700);
+}
+
+.perf-score-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background-color: var(--color-gray-100);
+  border: var(--border-width-thin) solid var(--color-gray-300);
+  padding-block: var(--space-16);
+  padding-inline: var(--space-32);
+  min-width: 160px;
+}
+
+.perf-score-card-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  color: var(--color-gray-700);
+}
+
+.perf-score-card-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-black);
+}
+
+/* Search Wrapper */
+.perf-search-wrapper {
+  margin-block-end: var(--space-32);
+}
+
+.perf-search-input {
+  width: 100%;
+}
+
+/* Table */
+.perf-table-wrapper {
+  overflow-x: auto;
+  border: var(--border-width-thin) solid var(--color-gray-200);
+}
+
+.perf-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.perf-th {
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-900);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding-block: var(--space-16);
+  padding-inline: var(--space-16);
+  border-block-end: var(--border-width-thin) solid var(--color-gray-300);
+}
+
+.perf-td {
+  padding-block: var(--space-16);
+  padding-inline: var(--space-16);
+  border-block-end: var(--border-width-thin) solid var(--color-gray-200);
+  font-size: 0.95rem;
+  color: var(--color-gray-800);
+}
+
+.perf-td-strong {
+  font-weight: 600;
+  color: var(--color-black);
+}
+
+.perf-td-notes {
+  color: var(--color-gray-700);
+}
+
+.perf-tr:hover {
+  background-color: var(--color-gray-50);
+}
+
+.perf-score-pill {
+  display: inline-block;
+  font-weight: 700;
+  padding-block: 0;
+  padding-inline: var(--space-16);
+  background-color: var(--color-gray-200);
+  color: var(--color-black);
+}
+
+/* Empty State */
+.perf-empty-state {
+  border: var(--border-width-thin) dashed var(--color-gray-300);
+  padding-block: var(--space-64);
+  padding-inline: var(--space-32);
+  text-align: center;
+  background-color: var(--color-gray-50);
+}
+
+.perf-empty-text {
+  margin: 0;
+  margin-block-end: var(--space-16);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+.perf-empty-subtext {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-gray-700);
+}
