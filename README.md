@@ -3,6 +3,7 @@
 A resilient, accessible, and high-performance React application built for newsroom floor staff transitioning from paper logs and Excel spreadsheets to real-time digital monitoring.
 
 Floor staff can track Core Web Vitals, editorial publishing velocity, headline CTR, and article read-through rates with instant computation, robust offline/flaky connection handling, and strict input sanitization.
+**live link**  https://news-performance-optimization.vercel.app/
 
 ---
 
